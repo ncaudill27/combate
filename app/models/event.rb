@@ -6,7 +6,9 @@ class Event < ApplicationRecord
 
   def divisions_attributes=(division_attributes)
     division_attributes.values.each do |division_attribute|
-      
+      division_attribute[:style].each do |style|
+        division = Division.create()
+      end
     end
   end
 end
