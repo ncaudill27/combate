@@ -11,6 +11,8 @@
 
   <body>
     <div class="navbar">
+      <%= link_to "Home", root_path %>
+      <%= link_to "Tournaments", tournaments_path %>
       <% if logged_in? %>
         <%= link_to current_user.full_name, user_path(current_user) %>
         <%= link_to "Logout", logout_path, method: :delete %>
@@ -18,7 +20,6 @@
         <%= link_to "Login", login_path %>
         <%= link_to "Signup", signup_path %>
       <% end %>
-      <%= link_to "Tournaments", tournaments_path %>
     </div>
     <%= yield %>
   </body>
