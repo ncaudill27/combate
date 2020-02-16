@@ -1,17 +1,15 @@
 <h1><%= @tournament.organization %> Registration</h1>
 
-<%= form_with url: tournament_events_path do |f| %>
+<%= form_with model: [@tournament, @event] do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.fields_for :events, @tournament.events.build do |event_field| %>
-        <%= event_field.hidden_field :user_gi, value: current_user.gi_skill %>
-        <%= event_field.hidden_field :user_nogi, value: current_user.nogi_skill %>
-        <%= event_field.label "Divisions" %>
-        <%= event_field.select :divisions, division_select %><br>
-        <%= f.fields_for :divisions do |division_field| %>
-            <%= division_field.label :weight_class %>
-            <%= division_field.select :weight_class, Division.weight_classes %>
-            Recommendation: <%= current_user.weight_class %><br>
-        <% end %>
+    <%= f.label "Divisions" %>
+    <%= f.select :divisions, division_select %><br>
+    <%= f.fields_for :divisions, @event.divisions.build do |division_field| %>
+        <%= division_field.hidden_field :user_gi, value: current_user.gi_skill %>
+        <%= division_field.hidden_field :user_nogi, value: current_user.nogi_skill %>
+        <%= division_field.label :weight_class %>
+        <%= division_field.select :weight_class, Division.weight_classes %>
+        Recommendation: <%= current_user.weight_class %><br>
     <% end %>
     <br>
     <%= f.submit "Register" %>
