@@ -19,11 +19,12 @@ class SessionsController < ApplicationController
       user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.first_name = auth['info']['name'].split[0]
         u.last_name = auth['info']['name'].split[-1]
+        u.password = SecureRandom.hex
       end
 
       session[:user_id] = user.id
 
-      redirect_to user_path(user)
+      redirect_to edit_user_path(user), notice: "Please, fill out your information."
     else
       redirect_to login_path, notice: "Please, try again."
     end

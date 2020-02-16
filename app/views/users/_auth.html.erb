@@ -1,0 +1,14 @@
+<%= form_with model: user do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
+    <%= f.label :gi_skill %>
+    <%= f.select :gi_skill, gi_levels %>
+    <%= f.label :nogi_skill %>
+    <%= f.select :nogi_skill, nogi_levels %>
+    <%= f.label :weight %>
+    <%= f.select :weight, (130..250) %><br>
+
+    <%= f.submit %>
+<% end %>

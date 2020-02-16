@@ -1,3 +1,9 @@
 <h1>Edit <%= @user.full_name %></h1>
 
-<%= render 'form', {user: @user} %>
+<%= render 'flash' %>
+<br>
+<% if @user.uid? %>
+    <%= render 'auth', {user: @user} %>
+<% else %>
+    <%= render 'form', {user: @user} %>
+<% end %>
