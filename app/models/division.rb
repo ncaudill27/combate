@@ -6,5 +6,6 @@ class Division < ApplicationRecord
   scope :gi, -> { where(gi: true) }
   scope :nogi, -> { where(gi: false) }
   scope :level, ->(level) { where("skill = ?", level) }
+  scope :weight, ->(weight) { where("weight_class = ?", weight) }
 
 end
