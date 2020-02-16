@@ -14,18 +14,27 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user.id != @user.id
+      redirect_to user_path(current_user), notice: "Please only make changes to your profile." 
+    end
   end
 
   def update
-    @user.update(user_params)
-
-    redirect_to @user
+    if current_user.id == @user.id
+      @user.update(user_params)
+      redirect_to @user
+    else
+      redirect_to user_path(current_user), notice: "Please only make changes to your profile."
+    end
   end
 
   def destroy
-    @user.destroy
-
-    redirect_to tournaments_path
+    if current_user.id == @user.id
+      @user.destroy
+      redirect_to tournaments_path
+    else
+      redirect_to user_path(current_user), notice: "Please only make changes to your profile."
+    end
   end
 
   private

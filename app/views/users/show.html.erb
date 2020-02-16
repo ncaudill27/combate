@@ -27,5 +27,5 @@
     </li>
 <% end %>
 </ul>
-
-<%= button_to "Delete", @user, method: :delete %>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= button_to "Delete #{@user.full_name}", @user, method: :delete %>
