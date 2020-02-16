@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight_class: MyString
+  gi: false
+  skill: MyString
+
+two:
+  weight_class: MyString
+  gi: false
+  skill: MyString
