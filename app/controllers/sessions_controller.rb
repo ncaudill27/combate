@@ -23,8 +23,11 @@ class SessionsController < ApplicationController
       end
 
       session[:user_id] = user.id
-
-      redirect_to edit_user_path(user), notice: "Please, fill out your information."
+      if !user.weight?
+        redirect_to edit_user_path(user), notice: "Please, fill out your information."
+      else
+        redirect_to user_path(user), notice: "Logged in!"
+      end
     else
       redirect_to login_path, notice: "Please, try again."
     end
