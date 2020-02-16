@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :divisions, only: [:index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/:provider/callback', to: 'sessions#auth_create', via: [:get, :post]
 
   root 'application#welcome'
 end
