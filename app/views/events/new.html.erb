@@ -1,7 +1,13 @@
 <h1><%= @tournament.organization %> Registration</h1>
 
 <%= form_with url: tournament_events_path do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.fields :division do |div_field| %>
+        <%= div_field.label "Divisions" %>
+        <%= div_field.select :division, division_select %><br>
+        <%= div_field.label :weight_class %>
         <%= div_field.collection_select :division_id, Division.all, :id, :weight_class %>
     <% end %>
+    <br>
+    <%= f.submit "Register" %>
 <% end %>
