@@ -16,9 +16,11 @@ class SessionsController < ApplicationController
 
   def auth_create
     if auth['uid']
+#? May have to create custom User class method.
       user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.first_name = auth['info']['name'].split[0]
         u.last_name = auth['info']['name'].split[-1]
+        #TODO skip email validation.
         u.password = SecureRandom.hex
       end
 

@@ -13,7 +13,7 @@ class User < ApplicationRecord
     case weight
     when 0..139.9
       "Fly"
-    when 140..149.9
+    when 140..154.9
       "Feather"
     when 155..169.9
       "Light"
