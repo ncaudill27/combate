@@ -6,7 +6,7 @@
         <%= div_field.label "Divisions" %>
         <%= div_field.select :division, division_select %><br>
         <%= div_field.label :weight_class %>
-        <%= div_field.collection_select :division_id, Division.all, :id, :weight_class %>
+        <%= div_field.select :weight_class, Division.weight_classes %>
     <% end %>
     <br>
     <%= f.submit "Register" %>

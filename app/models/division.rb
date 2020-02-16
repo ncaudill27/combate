@@ -7,5 +7,6 @@ class Division < ApplicationRecord
   scope :nogi, -> { where(gi: false) }
   scope :level, ->(level) { where("skill = ?", level) }
   scope :weight, ->(weight) { where("weight_class = ?", weight) }
+  scope :weight_classes, -> { distinct.pluck(:weight_class) }
 
 end
