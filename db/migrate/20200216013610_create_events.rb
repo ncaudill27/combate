@@ -3,7 +3,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
     create_table :events do |t|
       t.integer :tournament_id
       t.integer :user_id
-      t.integer :division_id
       t.boolean :registration_status, default: false, null: false
 
       t.timestamps
