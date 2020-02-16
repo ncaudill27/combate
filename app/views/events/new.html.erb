@@ -2,13 +2,14 @@
 
 <%= form_with url: tournament_events_path do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :user_gi, value: current_user.gi_skill %>
-    <%= f.hidden_field :user_nogi, value: current_user.nogi_skill %>
     <%= f.fields :division do |div_field| %>
+        <%= div_field.hidden_field :user_gi, value: current_user.gi_skill %>
+        <%= div_field.hidden_field :user_nogi, value: current_user.nogi_skill %>
         <%= div_field.label "Divisions" %>
         <%= div_field.select :division, division_select %><br>
         <%= div_field.label :weight_class %>
-        <%= div_field.select :weight_class, Division.weight_classes, prompt: current_user.weight_class %>
+        <%= div_field.select :weight_class, Division.weight_classes %>
+        Recommendation: <%= current_user.weight_class %><br>
     <% end %>
     <br>
     <%= f.submit "Register" %>
