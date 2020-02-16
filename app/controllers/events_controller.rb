@@ -11,6 +11,6 @@ class EventsController < ApplicationController
   end
 
   def events_params
-    params.require(:event)
+    params.require(:event).permit(:user_id, :tournament_id, divisions_attributes: [:gi, :user_nogi, :user_gi, :weight_class])
   end
 end
