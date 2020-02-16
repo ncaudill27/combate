@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
       
       redirect_to user_path(user), notice: "Logged in!"
     else
-      #TODO Flash error messages
       redirect_to login_path, notice: "Please, try again."
     end
   end
