@@ -8,5 +8,9 @@ class Division < ApplicationRecord
   scope :level, ->(level) { where("skill = ?", level) }
   scope :weight, ->(weight) { where("weight_class = ?", weight) }
   scope :weight_classes, -> { distinct.pluck(:weight_class) }
-  scope :gi_or_nogi, -> { distinct.pluck(:gi) }
+  scope :gi_or_nogi, -> { select(:style).distinct }
+
+  def gi_or_nogi
+    Division.gi_or_nogi.uniq
+  end
 end
