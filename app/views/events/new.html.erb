@@ -2,9 +2,11 @@
 
 <%= form_with model: [@tournament, @event] do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :tournament_id %>
     <%= f.fields_for :divisions, @event.divisions.build do |division_field| %>
         <%= division_field.label "Divisions" %>
-        <%= division_field.select :gi, division_select %><br>
+        <%= division_field.select :gi, Division.gi_or_nogi %><br>
+        <%= division_field.check_box :nogi %>
         <%= division_field.hidden_field :user_gi, value: current_user.gi_skill %>
         <%= division_field.hidden_field :user_nogi, value: current_user.nogi_skill %>
         <%= division_field.label :weight_class %>
