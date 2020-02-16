@@ -1,0 +1,14 @@
+<%= form_with model: tournament do |f| %>
+    <%= f.label :organization %>
+    <%= f.text_field :organization %><br>
+    <%= f.label :website %>
+    <%= f.text_field :url %><br>
+    <%= f.label :date %>
+    <%= f.date_select :date %><br>
+    <%= f.label :registration_open %>
+    <%= f.date_select :registration_open %><br>
+    <%= f.label :registration_close %>
+    <%= f.date_select :registration_close %><br>
+
+    <%= f.submit %>
+<% end %>
