@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    byebug
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -16,7 +15,18 @@ class SessionsController < ApplicationController
   end
 
   def auth_create
-    
+    if auth['uid']
+      user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.first_name = auth['info']['name'].split[0]
+        u.last_name = auth['info']['name'].split[-1]
+      end
+
+      session[:user_id] = user.id
+
+      redirect_to user_path(user)
+    else
+      redirect_to login_path, notice: "Please, try again."
+    end
   end
 
   def destroy
