@@ -1,0 +1,19 @@
+<h1><%= @user.full_name %></h1>
+
+<h2>Tournaments</h2>
+
+<ul>
+<% @user.tournaments.each do |tournament| %>
+<li>
+    <!-- Another use for tournament partial -->
+        Organization: <%= link_to tournament.organization, tournament_path(tournament.id) %><br>
+        Date: <%= tournament.date %><br>
+        Registration Open: <%= tournament.registration_open %><br>
+        Registration Close: <%= tournament.registration_close %><br>
+        <%= link_to "Edit", edit_tournament_path(tournament) %>
+        <%= button_to "Delete", tournament, method: :delete %><br><br>
+    </li>
+<% end %>
+</ul>
+
+<%= button_to "Delete", @user, method: :delete %>
