@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_214706) do
-
-  create_table "divisions", force: :cascade do |t|
-    t.string "weight_class"
-    t.string "skill"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "style"
-  end
-
-  create_table "divisions_events", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.integer "division_id", null: false
-    t.index ["division_id"], name: "index_divisions_events_on_division_id"
-    t.index ["event_id"], name: "index_divisions_events_on_event_id"
-  end
+ActiveRecord::Schema.define(version: 2020_02_16_013610) do
 
   create_table "events", force: :cascade do |t|
     t.integer "tournament_id"
@@ -55,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_214706) do
     t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "uid"
   end
 
 end
