@@ -5,14 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-division = ['Super', 'Heavy', 'Middle', 'Welter', 'Light', 'Feather', 'Fly']
-gi_skills = ['White', 'Blue', 'Purple', 'Brown', 'Black']
-nogi_skills = ['Beginner', 'Intermediate', 'Advanced']
-styles = ['Gi', 'No gi']
-
-division.each do |weight|
-  styles.each do |style|
-    gi_skills.each{|skill| Division.create(weight_class: weight, style: style, skill: skill)}
-    nogi_skills.each{|skill| Division.create(weight_class: weight, style: style, skill: skill)}
-  end
-end

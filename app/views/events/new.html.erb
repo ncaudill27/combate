@@ -1,19 +1,6 @@
 <h1><%= @tournament.organization %> Registration</h1>
 
 <%= form_with model: [@tournament, @event] do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :tournament_id %>
-    <%= f.fields_for :divisions, @event.divisions.build do |division_field| %>
-        <%= division_field.collection_check_boxes :style, Division.gi_or_nogi, :style, :style %>
-        <br>
-        <%= division_field.hidden_field :skill, value: current_user.gi_skill %>
-        <%= division_field.hidden_field :skill, value: current_user.nogi_skill %>
-        <%= division_field.label :weight_class %>
-        <%= division_field.select :weight_class, Division.weight_classes, prompt: true %>
-        <br>
-        Recommended weight class: <%= current_user.weight_class %>
-        <br>
-    <% end %>
-    <br>
+
     <%= f.submit "Register" %>
 <% end %>

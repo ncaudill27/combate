@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new, :index]
   resources :tournaments do
     resources :events, only: [:new, :create]
-    resources :divisions, only: [:index]
+    resources :users, only: [:index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   match '/auth/:provider/callback', to: 'sessions#auth_create', via: [:get, :post]
