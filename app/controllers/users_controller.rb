@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @bookmarks = User.bookmarks
   end
 
   def edit

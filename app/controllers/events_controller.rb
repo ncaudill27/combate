@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+  def index
+    @bookmarks = Event.bookmarks(params[:user_id])
+  end
+  
   def new
     @tournament = Tournament.find_by_id(params[:tournament_id])
     @event = @tournament.events.build
@@ -13,6 +17,6 @@ class EventsController < ApplicationController
   end
 
   def events_params
-    params.require(:event).permit(:user_id, :tournament_id)
+    params.require(:event).permit(:user_id, :tournament_id, :registration_status)
   end
 end
