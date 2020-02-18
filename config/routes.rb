@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/users/:user_id/bookmarks', to: 'events#index', as: 'bookmarks'
-  resources :users, except: [:new, :index] do
-    resources :events, only: [:index]
-  end
+  
+  resources :users, except: [:new, :index]
   resources :tournaments do
     resources :events, only: [:new, :create]
   end
