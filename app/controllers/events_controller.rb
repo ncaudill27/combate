@@ -6,8 +6,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    byebug
-    
+    event = Event.create(events_params)
+    user = User.find_by_id(event.user_id)
+
+    redirect_to user_path(user)
   end
 
   def events_params

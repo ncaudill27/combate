@@ -2,8 +2,8 @@
 
 <%= form_with model: [@tournament, @event] do |f| %>
     <%= f.label :register_now? %>
-    <%= f.hidden_field :tournament_id, @tournament.id %>
-    <%= f.hidden_field :user_id, current_user.id %>
+    <%= f.hidden_field :tournament_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.check_box :registration_status %>
     <%= f.submit "Oss" %>
 <% end %>
