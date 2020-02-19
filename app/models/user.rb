@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :events
   has_many :tournaments, through: :events
+  validates :tournament.name, uniquess: { scope: :date,
+    message: "Can only add tournament once."
+  }
   
   has_secure_password
 
