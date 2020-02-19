@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @bookmarks = Event.bookmarks(params[:user_id])
+    @user = User.find_by_id(params[:user_id])
+    @bookmarks = Event.bookmarks(@user.id)
+    @tournaments = @user.tournaments
   end
   
   def new

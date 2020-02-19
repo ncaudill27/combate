@@ -20,10 +20,7 @@
 <% @user.tournaments.each do |tournament| %>
 <li>
     <!-- Another use for tournament partial -->
-        Organization: <%= link_to tournament.organization, tournament_path(tournament.id) %><br>
-        Date: <%= tournament.date %><br>
-        Registration Open: <%= tournament.registration_open %><br>
-        Registration Close: <%= tournament.registration_close %><br>
+        <%= render 'tournament', {tournament: tournament} %>
         <%= link_to "Edit", edit_tournament_path(tournament) %>
         <%= button_to "Delete", tournament, method: :delete %><br><br>
     </li>

@@ -1,0 +1,10 @@
+<h1><%= @user.full_name %></h1>
+
+<h2>Bookmarked</h2>
+
+<% @tournaments.each do |tournament| %>
+    <p>
+        <%= render 'tournaments/tournament', {tournament: tournament} %>
+    </p>
+
+<% end %>
