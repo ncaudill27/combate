@@ -12,10 +12,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(events_params)
+    event = Event.new(events_params)
     user = User.find_by_id(event.user_id)
+    if user.events << event
+      redirect_to user_path(user)
+    else
+      render :new
+    end
 
-    redirect_to user_path(user)
   end
 
   def events_params
