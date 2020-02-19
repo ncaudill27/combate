@@ -4,7 +4,9 @@
 
 <% @tournaments.each do |tournament| %>
     <p>
+        <%= hidden_field_tag :event_id, value: Event.where("tournament_id = ? AND user_id = ?", tournament.id, params[:user_id]) %>
         <%= render 'tournaments/tournament', {tournament: tournament} %>
+        <%= link_to "Pay and Register", edit_event_path(:event_id) %>
     </p>
 
 <% end %>
