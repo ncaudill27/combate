@@ -21,8 +21,6 @@
 <li>
     <!-- Another use for tournament partial -->
         <%= render 'tournaments/tournament', {tournament: tournament} %>
-        <%= link_to "Edit", edit_tournament_path(tournament) %>
-        <%= button_to "Delete", tournament, method: :delete %><br><br>
     </li>
 <% end %>
 </ul>

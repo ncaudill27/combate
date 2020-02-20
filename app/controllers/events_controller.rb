@@ -19,7 +19,6 @@ class EventsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def events_params
