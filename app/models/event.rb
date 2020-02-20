@@ -4,5 +4,6 @@ class Event < ApplicationRecord
   
   validates :user_id, uniqueness: { scope: :tournament_id }
   
-  scope :bookmarks, -> (id){ where("registration_status = ? AND user_id = ?", false, id)}
+  scope :bookmarked, -> (id){ where("registration_status = ? AND user_id = ?", false, id)}
+  scope :registered, -> (id){ where("registration_status = ? AND user_id = ?", true, id)}
 end

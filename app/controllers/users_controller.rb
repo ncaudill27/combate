@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @tournaments = Event.registered(@user.id)
   end
 
   def edit

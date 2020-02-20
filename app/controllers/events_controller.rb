@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @user = User.find_by_id(params[:user_id])
-    @bookmarks = Event.bookmarks(@user.id)
+    @bookmarks = Event.bookmarked(@user.id)
     @tournaments = @user.tournaments
   end
   
@@ -13,12 +13,17 @@ class EventsController < ApplicationController
 
   def create
     event = Event.new(events_params)
-    user = User.find_by_id(event.user_id)
-    if user.events << event
+    if event.valid?
+      user = User.find(params[:user_id])
+      event.save
       redirect_to user_path(user)
     else
       render :new
     end
+  end
+
+  def update
+    byebug
   end
 
   def events_params

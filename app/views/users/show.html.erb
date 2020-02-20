@@ -17,7 +17,7 @@
 <h2>Tournaments</h2>
 
 <ul>
-<% @user.tournaments.each do |tournament| %>
+<% @tournaments.each do |tournament| %>
 <li>
     <!-- Another use for tournament partial -->
         <%= render 'tournaments/tournament', {tournament: tournament} %>
