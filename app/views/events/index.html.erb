@@ -2,10 +2,10 @@
 
 <h2>Bookmarked</h2>
 
-<% @bookmarks.each do |bookmark| %>
+<% @events.each do |event| %>
     <p>
-        <%= render 'tournaments/tournament', {tournament: bookmark.tournament} %>
-        <%= button_to "Pay and Register", bookmark, method: :patch %>
+        <%= render 'tournaments/tournament', {tournament: event.tournament} %>
+        <%= button_to "Pay and Register", event_path(event), method: :patch %>
     </p>
 
 <% end %>

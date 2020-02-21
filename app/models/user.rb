@@ -2,14 +2,20 @@ class User < ApplicationRecord
   has_many :events
   has_many :tournaments, through: :events
 
-  scope :bookmarked, ->(id){ joins(:event).merge(Event.bookmarked(id)) }
-  scope :registered, ->(id){ joins(:event).merge(Event.registered(id)) }
-
   has_secure_password
 
   def full_name
     first_name + " " + last_name
   end
+  
+  def registered_events
+    self.events.registered
+  end
+
+  def bookmarked_events
+    self.events.bookmarked
+  end
+  
 
   def weight_class
     case weight

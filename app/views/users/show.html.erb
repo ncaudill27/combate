@@ -17,10 +17,10 @@
 <h2>Tournaments</h2>
 
 <ul>
-<% @tournaments.each do |tournament| %>
-<li>
+<% @events.each do |event| %>
+    <li>
     <!-- Another use for tournament partial -->
-        <%= render 'tournaments/tournament', {tournament: tournament} %>
+        <%= render 'tournaments/tournament', {tournament: event.tournament} %>
     </li>
 <% end %>
 </ul>

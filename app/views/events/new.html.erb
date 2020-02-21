@@ -1,9 +1,8 @@
-<h1><%= @tournament.organization %> Registration</h1>
+<h1><%= @event.tournament.organization %> Registration</h1>
 
-<%= form_with model: [@tournament, @event] do |f| %>
+<%= form_with model: [@event.tournament, @event] do |f| %>
     <%= f.label :register_now? %>
     <%= f.hidden_field :tournament_id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.check_box :registration_status %>
     <%= f.submit "Oss" %>
 <% end %>
