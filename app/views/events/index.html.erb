@@ -6,6 +6,7 @@
     <p>
         <%= render 'tournaments/tournament', {tournament: event.tournament} %>
         <%= button_to "Pay and Register", event_path(event), method: :patch %>
+        <%= button_to "Remove Bookmark", event_path(event), method: :delete %>
     </p>
 
 <% end %>

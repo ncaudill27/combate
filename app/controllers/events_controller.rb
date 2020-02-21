@@ -33,7 +33,13 @@ class EventsController < ApplicationController
   end
 
   def destroy
-
+    @event = Event.find_by_id(params[:id])
+    if current_user.id == @event.user_id
+      @event.destroy
+      redirect_to current_user
+    else
+      security_redirect
+    end
   end
 
   private
