@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :security_redirect
 
   def welcome
   end
@@ -10,5 +10,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def security_redirect
+    redirect_to current_user, notice: "Please only make changes to your profile."
   end
 end

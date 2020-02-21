@@ -28,7 +28,7 @@ class EventsController < ApplicationController
       @event.save
       redirect_to current_user
     else
-      redirect_to current_user, notice: "Please only make changes to your profile."
+      security_redirect
     end
   end
 
