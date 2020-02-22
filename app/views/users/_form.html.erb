@@ -25,12 +25,17 @@
         <%= f.password_field :password_confirmation %><br>
     </div>
 
-        <%= f.label :gi_skill %>
-        <%= f.select :gi_skill, gi_levels %>
-        <%= f.label :nogi_skill %>
-        <%= f.select :nogi_skill, nogi_levels %>
-        <%= f.label :weight %>
-        <%= f.select :weight, (130..250) %><br>
+    <br>
+    <%= f.label :gi_skill %>
+    <%= f.select :gi_skill, gi_levels %>
+    <%= f.label :nogi_skill %>
+    <%= f.select :nogi_skill, nogi_levels %>
+    <%= f.label :weight %>
+    <%= f.select :weight, (130..250) %><br><br>
 
+    <%= f.label :team %>
+    <%= f.collection_select :team_id, Team.all, :id, :affiliation %>
+    <br><br>
+    
     <%= f.submit %>
 <% end %>
