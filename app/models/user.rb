@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  validates :first_name, :last_name, presence: true, format: { with: /\A[a-z]+\z/i, message: "only allows letters." }
+  validates :email, uniqueness: true
+
   def full_name
     first_name + " " + last_name
   end
