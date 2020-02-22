@@ -1,14 +1,6 @@
 <h1>Tournament Registration</h1>
-<% if @event.errors.any? %>
-    <div id="error_explanation">
-        <h2>There were some errors:</h2>
-        <ul>
-            <% @event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-<% end %>
+
+<%= render 'errors', { model: @event } %>
 
 <%= form_with model: [@event.tournament, @event], local: true do |f| %>
     <%= f.label :pay_now? %>
