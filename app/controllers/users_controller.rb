@@ -61,7 +61,8 @@ class UsersController < ApplicationController
                           :password_confirmation,
                           :gi_skill,
                           :nogi_skill,
-                          :weight
+                          :weight,
+                          :team_id
                         )
   end
 end

@@ -35,7 +35,7 @@ class User < ApplicationRecord
       "Middle"
     when 200..214.9
       "Heavy"
-    when weight > 215
+    when weight >= 215
       "Super"
     end
   end

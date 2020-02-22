@@ -31,11 +31,12 @@
     <%= f.label :nogi_skill %>
     <%= f.select :nogi_skill, nogi_levels %>
     <%= f.label :weight %>
-    <%= f.select :weight, (130..250) %><br><br>
+    <%= f.select :weight, (130..250) %>
+    <br><br>
 
     <%= f.label :team %>
-    <%= f.collection_select :team_id, Team.all, :id, :affiliation %>
+    <%= f.collection_select :team_id, Team.all, :id, :affiliation, prompt: true %>
     <br><br>
-    
+
     <%= f.submit %>
 <% end %>
