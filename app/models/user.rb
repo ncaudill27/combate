@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :events
   has_many :tournaments, through: :events
+  belongs_to :team, optional: true
 
   has_secure_password
 
