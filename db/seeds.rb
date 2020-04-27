@@ -1,6 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
+Team.destroy_all
+Tournament.destroy_all
+User.destroy_all
+
 Team.create(affiliation:"Gracie Barra", location: "Miami, FL")
 Team.create(affiliation:"Alliance", location: "Atlanta, GA")
 Team.create(affiliation:"Gracie Academy", location: "Savannah, GA")
