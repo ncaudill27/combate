@@ -18,10 +18,11 @@
     </li>
 <% end %>
 </ul>
-<% current_user.registered_events.each do |event| %>
-    <p><%= event.tournament_id %></p>
+<% if logged_in? %>
+    <% current_user.registered_events.each do |event| %>
+        <p><%= event.tournament_id %></p>
+    <% end %>
 <% end %>
-
 
 
 <!-- Admin only -->

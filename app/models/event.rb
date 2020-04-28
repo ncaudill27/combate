@@ -8,4 +8,8 @@ class Event < ApplicationRecord
   
   scope :bookmarked, ->{ where("registration_status = ?", false) }
   scope :registered, ->{ where("registration_status = ?", true) }
+
+  def division_attributes
+
+  end
 end
