@@ -2,10 +2,10 @@
 
 one:
   weight_class: MyString
-  gi: false
   skill: MyString
+  gi: false
 
 two:
   weight_class: MyString
-  gi: false
   skill: MyString
+  gi: false

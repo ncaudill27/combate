@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_011153) do
+ActiveRecord::Schema.define(version: 2020_04_28_054227) do
+
+  create_table "divisions", force: :cascade do |t|
+    t.string "weight_class"
+    t.string "skill"
+    t.boolean "gi", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer "tournament_id"
