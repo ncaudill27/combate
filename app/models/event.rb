@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :tournament
-  belongs_to :division
+  belongs_to :division, optional: :true
   
   validates :user_id, uniqueness: { scope: :tournament_id,
     message: "already added that tournament."}

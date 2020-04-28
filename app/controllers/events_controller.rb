@@ -7,8 +7,9 @@ class EventsController < ApplicationController
   end
   
   def new
-    @tournament = Tournament.find_by_id(params[:tournament_id])
-    @event = @tournament.events.build
+    @event = Event.new
+    @nogi = @event.build_division(gi: false)
+    @gi = @event.build_division(gi: true)
   end
 
   def create

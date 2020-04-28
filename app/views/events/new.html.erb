@@ -2,9 +2,27 @@
 
 <%= render 'errors', { model: @event } %>
 
-<%= form_with model: [@event.tournament, @event], local: true do |f| %>
-    <%= f.label :pay_now? %>
-    <%= f.hidden_field :tournament_id %>
-    <%= f.check_box :registration_status %>
+<%= form_with url: tournament_events_path, local: true do |f| %>
+<%= f.hidden_field :tournament_id %>
+<!-- <%= f.label :pay_now? %>
+<%= f.check_box :registration_status %> -->
+    <%= f.fields_for :nogi do |n| %>
+        <%= n.label :nogi %>
+        <%= n.check_box :nogi %>
+        <%= n.label :weight_class %>
+        <%= n.text_field :weight_class, :value => current_user.weight_class + 'weight' %>
+        <%= n.label :skill %>
+        <%= n.text_field :skill, :value => current_user.nogi_skill %>
+    <% end %>
+    <br>
+    <%= f.fields_for :gi do |n| %>
+        <%= n.label :gi %>
+        <%= n.check_box :gi %>
+        <%= n.label :weight_class %>
+        <%= n.text_field :weight_class, :value => current_user.weight_class + 'weight' %>
+        <%= n.label :skill %>
+        <%= n.text_field :skill, :value => current_user.gi_skill %>
+    <% end %>
+    <br>
     <%= f.submit "Oss" %>
 <% end %>
