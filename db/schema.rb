@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_04_28_054227) do
 
   create_table "divisions", force: :cascade do |t|
+    t.integer "tournament_id"
     t.string "weight_class"
     t.string "skill"
     t.boolean "gi", default: true
@@ -23,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_04_28_054227) do
   create_table "events", force: :cascade do |t|
     t.integer "tournament_id"
     t.integer "user_id"
-    t.integer "division_id"
     t.boolean "registration_status", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_054227) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "uid"
+    t.integer "team_id"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -56,8 +58,6 @@ ActiveRecord::Schema.define(version: 2020_04_28_054227) do
     t.integer "weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "uid"
-    t.integer "team_id"
   end
 
 end

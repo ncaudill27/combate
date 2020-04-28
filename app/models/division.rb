@@ -1,5 +1,4 @@
 class Division < ApplicationRecord
-  has_many :events
-  has_many :users, through: :events
-  has_many :tournaments, through: :events
+  belongs_to :tournament
+  has_many :events, through: :tournament
 end

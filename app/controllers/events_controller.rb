@@ -8,11 +8,11 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    @nogi = @event.build_division(gi: false)
-    @gi = @event.build_division(gi: true)
+    @division = Division.new
   end
-
+  
   def create
+    byebug
     @event = current_user.events.build(events_params)
     if @event.save
       redirect_to current_user
