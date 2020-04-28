@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_054227) do
   create_table "events", force: :cascade do |t|
     t.integer "tournament_id"
     t.integer "user_id"
+    t.integer "division_id"
     t.boolean "registration_status", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

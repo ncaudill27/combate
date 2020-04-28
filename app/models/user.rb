@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+ class User < ApplicationRecord
   has_many :events
   has_many :tournaments, through: :events
   has_many :divisions, through: :events
@@ -20,7 +20,6 @@ class User < ApplicationRecord
   def bookmarked_events
     self.events.bookmarked
   end
-  
 
   def weight_class
     case weight
