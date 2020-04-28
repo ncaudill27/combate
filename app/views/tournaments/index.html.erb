@@ -18,6 +18,11 @@
     </li>
 <% end %>
 </ul>
+<% current_user.registered_events.each do |event| %>
+    <p><%= event.tournament_id %></p>
+<% end %>
+
+
 
 <!-- Admin only -->
 <!-- <%= link_to "Add Tournament", new_tournament_path %> -->

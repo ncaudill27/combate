@@ -15,11 +15,18 @@
 </h2>
 
 <h2><%= link_to "Bookmarked", bookmarks_path(@user) %></h2>
+<ul>
+<% @bookmarked_events.each do |event| %>
+    <li>
+        <%= render 'tournaments/tournament', {tournament: event.tournament} %>
+    </li>
+<% end %>
+</ul>
 
 <h2>Tournaments</h2>
 
 <ul>
-<% @events.each do |event| %>
+<% @registered_events.each do |event| %>
     <li>
     <!-- Another use for tournament partial -->
         <%= render 'tournaments/tournament', {tournament: event.tournament} %>
