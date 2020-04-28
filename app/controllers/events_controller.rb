@@ -8,7 +8,8 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    @division = Division.new
+    @event.divisions.build(gi: true)
+    @event.divisions.build(gi: false)
   end
   
   def create

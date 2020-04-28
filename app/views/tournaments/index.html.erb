@@ -7,7 +7,7 @@
         Date: <%= tournament.output_date %><br>
         Registration Open: <%= tournament.registration_open %><br>
         Registration Close: <%= tournament.registration_close %><br><br>
-        <%= button_to "Bookmark", tournament_events_path(tournament_id: tournament.id), method: :create, params:
+        <%= button_to "Bookmark", events_path(tournament_id: tournament.id), method: :create, params:
             {
                 'event[tournament_id]' => tournament.id
             }

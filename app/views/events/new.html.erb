@@ -2,20 +2,26 @@
 
 <%= render 'errors', { model: @event } %>
 
-<%= form_with url: tournament_events_path, local: true do |f| %>
+<%= form_for @event, local: true do |f| %>
 <%= f.hidden_field :tournament_id %>
 <!-- <%= f.label :pay_now? %>
 <%= f.check_box :registration_status %> -->
-    <%= f.fields_for :division do |n| %>
-        <%= n.label :nogi %>
-        <%= n.check_box :nogi %>
-        <%= n.label :weight_class %>
-        <%= n.text_field :weight_class, :value => current_user.weight_class + 'weight' %>
-        <%= n.label :skill %>
-        <%= n.text_field :skill, :value => current_user.nogi_skill %>
+    <%= f.fields_for :divisions do |d| %>
+        <% if d.object.gi %>
+            <%= d.label :gi %>
+            <%= d.check_box :gi %>
+        <% else %>
+            <%= d.label :nogi %>
+            <%= d.check_box :gi %>
+        <% end %>
+        <%= d.label :weight_class %>
+        <%= d.text_field :weight_class, :value => current_user.weight_class + 'weight' %>
+        <%= d.label :skill %>
+        <%= d.text_field :skill, :value => current_user.nogi_skill %>
+        <br>
     <% end %>
     <br>
-    <%= f.fields_for :division do |n| %>
+    <!-- <%= f.fields_for :division do |n| %>
         <%= n.label :gi %>
         <%= n.check_box :gi %>
         <%= n.label :weight_class %>
@@ -23,6 +29,6 @@
         <%= n.label :skill %>
         <%= n.text_field :skill, :value => current_user.gi_skill %>
     <% end %>
-    <br>
+    <br> -->
     <%= f.submit "Oss" %>
-<% end %>j
+<% end %>
