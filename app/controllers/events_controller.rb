@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to current_user
     else
-      
       render :new
     end
   end

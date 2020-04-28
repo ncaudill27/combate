@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :security_redirect
+  # protect_from_forgery with: :exception, prepend: :true
 
   def welcome
   end

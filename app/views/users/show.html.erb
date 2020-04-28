@@ -14,11 +14,12 @@
 
 </h2>
 
-<h2><%= link_to "Bookmarked", bookmarks_path(@user) %></h2>
+<h2>Bookmarked</h2>
 <ul>
 <% @bookmarked_events.each do |event| %>
     <li>
-        <%= render 'tournaments/tournament', {tournament: event.tournament} %>
+        <%= render 'tournaments/bookmark', {tournament: event.tournament} %>
+        <%= link_to "Register", new_tournament_event_path(event.tournament) %>
     </li>
 <% end %>
 </ul>
