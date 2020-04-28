@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_04_28_054227) do
 
   create_table "divisions", force: :cascade do |t|
-    t.integer "tournament_id"
+    t.integer "event_id"
     t.string "weight_class"
     t.string "skill"
     t.boolean "gi", default: true

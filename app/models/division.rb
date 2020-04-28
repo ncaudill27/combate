@@ -1,4 +1,3 @@
 class Division < ApplicationRecord
-  belongs_to :tournament
-  has_many :events, through: :tournament
+  belongs_to :event
 end
